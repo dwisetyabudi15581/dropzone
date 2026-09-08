@@ -86,28 +86,23 @@ Tidak punya PC? Tetap bisa! Web ini sudah dikonfigurasi agar kompatibel dengan T
 ```bash
 # 1. Update Termux & install kebutuhan
 pkg update && pkg upgrade -y
-pkg install nodejs git gh openssl -y
+pkg install nodejs git openssl -y
 
-# 2. Login GitHub (repo ini private)
-gh auth login
-#    → GitHub.com → HTTPS → "Login with a web browser"
-#    → buka tautan, masukkan kode yang muncul
-
-# 3. Clone & masuk folder
+# 2. Clone & masuk folder (repo publik, tanpa login)
 git clone https://github.com/dwisetyabudi15581/dropzone.git
 cd dropzone
 
-# 4. Buat file environment DULU, baru install
+# 3. Buat file environment DULU, baru install
 cp .env.example .env
 npm install
 
-# 5. Buat database
+# 4. Buat database
 npm run db:push
 
-# 6. Cegah Android membunuh proses saat layar mati
+# 5. Cegah Android membunuh proses saat layar mati
 termux-wake-lock
 
-# 7. Jalankan!
+# 6. Jalankan!
 npm run dev
 ```
 
@@ -121,6 +116,9 @@ Lalu buka **Chrome di HP yang sama** → **http://localhost:3000** 🎉
 - Kalau `npm install` selesai tapi muncul error saat `npm run db:push`, jalankan ulang perintahnya sekali lagi
 - Kalau muncul error `Cannot find module '@next/swc-android-arm64'`, jalankan:
   `npm install @next/swc-linux-arm64-musl --save-optional` lalu `npm run dev` lagi
+- Repo saat ini **publik** supaya gampang di-clone. Kalau nanti mau dibuat **private** lagi:
+  Settings → General → Danger Zone → Change visibility → *Make private*.
+  Setelah itu, clone butuh login — install `pkg install gh -y` lalu `gh auth login`
 
 ### Perintah yang tersedia
 
