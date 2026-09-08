@@ -52,3 +52,22 @@ prompt
 server.log
 # Skills directory
 /skills/
+# env & database lokal
+.env
+/db/
+
+# file upload runtime
+/uploads/
+
+# artefak sandbox & file internal
+.zscripts/
+scripts/
+download/
+mini-services/
+tests/
+examples/
+Caddyfile
+worklog.md
+
+# exception untuk contoh env
+!.env.example
