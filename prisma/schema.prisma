@@ -1,5 +1,7 @@
 generator client {
   provider = "prisma-client-js"
+  // "native" untuk PC, "linux-musl-arm64-openssl-3.0.x" untuk Termux (Android HP)
+  binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
 }
 
 datasource db {
